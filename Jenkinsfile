@@ -1,8 +1,7 @@
 pipeline {
-    agent {
-	label 'master'
+    agent none//{
         //docker { image 'timbru31/node-alpine-git:14' }
-    }
+    //}
     environment {
         GIT_LATEST_COMMIT_EDITOR= sh(
             returnStdout:true,
@@ -33,7 +32,6 @@ pipeline {
     	   agent {
                 docker { 
 		     image 'timbru31/node-alpine-git:14'
-		     label 'docker-agent-under-Execute-CI-pipeline-stage'
 		}
     	   } 
            stages{
