@@ -31,8 +31,10 @@ pipeline {
         }
         stage ('Execute CI pipeline') {
     	   agent {
-		label 'docker agent under Execute CI pipeline stage'
-                docker { image 'timbru31/node-alpine-git:14' }
+                docker { 
+		     image 'timbru31/node-alpine-git:14'
+		     label 'docker-agent-under-Execute-CI-pipeline-stage'
+		}
     	   } 
            stages{
                 stage ('npm install'){
