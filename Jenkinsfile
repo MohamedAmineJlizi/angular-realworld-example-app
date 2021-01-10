@@ -1,6 +1,7 @@
 pipeline {
     agent {
-        docker { image 'timbru31/node-alpine-git:14' }
+	label 'master'
+        //docker { image 'timbru31/node-alpine-git:14' }
     }
     environment {
         GIT_LATEST_COMMIT_EDITOR= sh(
@@ -29,7 +30,11 @@ pipeline {
             }
         }
         stage ('Execute CI pipeline') {
-            stages{
+    	   agent {
+		label 'docker agent under Execute CI pipeline stage'
+                docker { image 'timbru31/node-alpine-git:14' }
+    	   } 
+           stages{
                 stage ('npm install'){
                     steps {
                         sh "npm install"
