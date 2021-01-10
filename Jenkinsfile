@@ -18,9 +18,9 @@ pipeline {
         HOME = '.'
 	  }
 
-    parameters {
-        string(name: 'SLACK_CHANNEL', defaultValue:'#platform', description: 'slack channel to notify')
-    }
+    //parameters {
+        //string(name: 'SLACK_CHANNEL', defaultValue:'#platform', description: 'slack channel to notify')
+    //}
 
     stages {
         stage ('Show commit author') {
